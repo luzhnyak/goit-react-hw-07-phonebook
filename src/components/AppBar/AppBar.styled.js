@@ -9,4 +9,7 @@ margin-top: 8px;
     padding:0;
     margin: 0;
   }
+  span{
+    color: green;
+  }
 `;

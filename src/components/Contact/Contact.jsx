@@ -15,10 +15,10 @@ export const Contact = ({ id, name, number }) => {
 
   return (
     <Item>
-      <FaUserCircle size="30px" color={getRandomHexColor()} />
+      <FaUserCircle size="40px" color={getRandomHexColor()} />
       <div>
         <Name>{name}</Name>
-        <Number href={"tel:"+number}>{number}</Number>
+        <Number href={'tel:' + number}>{number}</Number>
       </div>
       <Button type="button" onClick={handleDelete} title={`Delete ${name}`}>
         <FaTimes />

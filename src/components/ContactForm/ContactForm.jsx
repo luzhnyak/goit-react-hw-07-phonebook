@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Input, Button } from './ContactForm.styled';
+import { Input, Button, Form } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/operations';
 import { getContacts } from 'redux/selectors';
+import toast from 'react-hot-toast';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
@@ -38,7 +39,7 @@ export const ContactForm = () => {
     event.preventDefault();
 
     if (isNameHas(name)) {
-      alert(`${name} is already in contacts.`);
+      toast.error(`${name} is already in contacts.`);
       return;
     }
 
@@ -48,7 +49,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <label>
         Name
         <Input
@@ -74,6 +75,6 @@ export const ContactForm = () => {
         />
       </label>
       <Button type="submit">Add contact</Button>
-    </form>
+    </Form>
   );
 };

@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux';
 import { getContacts, getFilter } from 'redux/selectors';
 import { Contact } from 'components/Contact/Contact';
+import { Ul } from './ContactsList.styled';
 
 const getFilteredContacts = (contacts, filter) => {
-  return contacts.filter(contact =>
+  return contacts?.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 };
@@ -14,8 +15,8 @@ export const ContactList = () => {
   const filteredContacts = getFilteredContacts(contacts, filter);
 
   return (
-    <ul>
-      {filteredContacts.map(contact => (
+    <Ul>
+      {filteredContacts?.map(contact => (
         <li key={contact.id}>
           <Contact
             id={contact.id}
@@ -24,6 +25,6 @@ export const ContactList = () => {
           />
         </li>
       ))}
-    </ul>
+    </Ul>
   );
 };
